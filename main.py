@@ -1,6 +1,6 @@
 import telebot
 import openai
-from settings.py import TG_TOKEN, AI_TOKEN
+from settings import TG_TOKEN, AI_TOKEN
 
 def createRequest(text):
   openai.api_key = AI_TOKEN
