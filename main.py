@@ -1,8 +1,9 @@
 import telebot
 import openai
+from settings.py import TG_TOKEN, AI_TOKEN
 
 def createRequest(text):
-  openai.api_key = "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"
+  openai.api_key = AI_TOKEN
   completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
@@ -11,7 +12,7 @@ def createRequest(text):
   )
   return completion.choices[0].message.content
 
-bot = telebot.TeleBot('6264805837:AAF4YdRnOfjtHWRZ9mv1PL0jvJrkZvNySuQ')
+bot = telebot.TeleBot(TG_TOKEN)
 
 @bot.message_handler(commands=["start"])
 def start(m, res=False):
